@@ -1,4 +1,4 @@
-def Q7():
+def question7():
     print("Enter a phrase: ")
     phrase = input()
     print("Choose the option")
