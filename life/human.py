@@ -1,49 +1,46 @@
 class Human:
-
     MAX_ENERGY = 100
     MOVE_ENERGY = 10
     REPRODUCE_ENERGY = 20
 
-    def __init__(self, name:str, age:int=0, energy:int=100) -> None:
-        self.name = name
-        self.age = age
-        self.energy = energy
+    def __init__(self, name: str, age: int = 0, energy: int = 100) -> None:
+        self.__name = name
+        self.__age = age
+        self.__energy = energy
 
-
-    def __repr__(self)->str:
-        return f'human(name={self.name}, age={self.age}, energy={self.energy})'
-
+    def __repr__(self) -> str:
+        return f'human(name={self.__name}, age={self.__age}, energy={self.__energy})'
 
     def __str__(self) -> str:
-        return f'{self.name} is {self.age} years old'
+        return f'{self.__name} is {self.__age} years old'
 
     def grow(self) -> None:
-        self.age +=1
+        self.__age += 1
 
     def eat(self, amount) -> int:
-        potential_energy = self.energy + amount
+        potential_energy = self.__energy + amount
 
         if potential_energy >= Human.MAX_ENERGY:
-            self.energy = Human.MAX_ENERGY
+            self.__energy = Human.MAX_ENERGY
             return potential_energy - Human.MAX_ENERGY
         else:
-            self.energy = potential_energy
-            return self.energy - Human.MAX_ENERGY
+            self.__energy = potential_energy
+            return self.__energy - Human.MAX_ENERGY
 
     def reproduce(self) -> bool:
-        potential_energy = self.energy - Human.REPRODUCE_ENERGY
+        potential_energy = self.__energy - Human.REPRODUCE_ENERGY
 
         if potential_energy >= Human.REPRODUCE_ENERGY:
-            self.energy = potential_energy
+            self.__energy = potential_energy
             return True
         else:
             return False
 
-    def move(self, distance:int) -> bool:
-        potential_energy = self.energy - distance
+    def move(self, distance: int) -> bool:
+        potential_energy = self.__energy - distance
 
         if potential_energy >= Human.MOVE_ENERGY:
-            self.energy = potential_energy
+            self.__energy = potential_energy
             return True
         else:
             return False
