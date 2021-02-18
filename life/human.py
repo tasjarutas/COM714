@@ -14,7 +14,7 @@ class Human:
     def __str__(self) -> str:
         return f'{self.__name} is {self.__age} years old'
 
-    def grow(self) -> None:
+    def grow(self)->None:
         self.__age += 1
 
     def eat(self, amount) -> int:
