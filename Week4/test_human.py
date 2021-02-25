@@ -1,8 +1,23 @@
 import unittest
 from human import Human
+from clothing_size import ClothingSize
+from clothing import Clothing
+
 
 class TestHuman(unittest.TestCase):
 
+    def test_dress(self) -> None:
+        human_jarutas = Human("Jarutas")
+        shirt = Clothing("blue", "cotton", ClothingSize.MEDIUM)
+        human_jarutas.dress(shirt)
+        self.assertEqual(human_jarutas.number_dress(), 1, "Number of clothing is 1")
+
+    def test_undress(self) -> None:
+        human_jarutas = Human("Jarutas")
+        shirt = Clothing("blue", "cotton", ClothingSize.MEDIUM)
+        human_jarutas.dress(shirt)
+        human_jarutas.undress(shirt)
+        self.assertEqual(human_jarutas.number_dress(), 0, "Number of clothing is 0")
 
 
     def test_eat(self) -> None:

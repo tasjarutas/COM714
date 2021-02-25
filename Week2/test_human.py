@@ -25,7 +25,8 @@ class TestHuman(unittest.TestCase):
     def test_grow(self) -> None:
         # growing
         human_jarutas = Human("Jarutas")
-        self.assertEqual(human_jarutas.grow(), None)
+        human_jarutas.grow()
+        self.assertEqual(human_jarutas.age, 1)
 
     def test_reproduce(self) -> None:
         # energy is below 20 and reproduce more than required
