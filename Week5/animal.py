@@ -5,7 +5,7 @@ class Animal(LivingThing):
     MAX_ENERGY = 100
     MIN_ENERGY = 0
     MOVE_ENERGY = 10
-    REPRODUCE_ENERGY = 20
+    REPRODUCE_ENERGY = 1
 
     def __init__(self, name: str, age: int = 0, energy: int = LivingThing.MAX_ENERGY) -> None:
         # self.__name = name
@@ -22,7 +22,7 @@ class Animal(LivingThing):
     def move(self, distance: int) -> bool:
         potential_energy = self._energy - distance
 
-        if potential_energy >= Animal.MOVE_ENERGY:
+        if potential_energy >= LivingThing.MOVE_ENERGY:
             self._energy = potential_energy
             return True
         else:
@@ -31,12 +31,12 @@ class Animal(LivingThing):
     def eat(self, amount) -> int:
         potential_energy = self._energy + amount
 
-        if potential_energy >= Animal.MAX_ENERGY:
-            self._energy = Animal.MAX_ENERGY
-            return potential_energy - Animal.MAX_ENERGY
+        if potential_energy >= LivingThing.MAX_ENERGY:
+            self._energy = LivingThing.MAX_ENERGY
+            return potential_energy - LivingThing.MAX_ENERGY
         else:
             self._energy = potential_energy
-            return self._energy - Animal.MAX_ENERGY
+            return self._energy - LivingThing.MAX_ENERGY
 
     def grow(self) -> None:
         self._age += 1
@@ -45,9 +45,9 @@ class Animal(LivingThing):
         return self._age
 
     def reproduce(self) -> bool:
-        potential_energy = self._energy - Animal.REPRODUCE_ENERGY
+        potential_energy = self._energy - LivingThing.REPRODUCE_ENERGY
 
-        if potential_energy >= Animal.MIN_ENERGY:
+        if potential_energy >= LivingThing.MIN_ENERGY:
             self._energy = potential_energy
             return True
         else:

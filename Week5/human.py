@@ -7,7 +7,7 @@ class Human(Animal):
     REPRODUCE_ENERGY = 20
 
     def __init__(self, name: str, age: int = 0, energy: int = Animal.MAX_ENERGY) -> None:
-        super(Human, self).__init__(name, age, energy)
+        super().__init__(name, age, energy)
         self.__clothing = []
 
     def dress(self, clothing: Clothing):

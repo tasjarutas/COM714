@@ -18,9 +18,9 @@ class Plant(LivingThing):
 
     def absorb(self, amount: int) -> int:
         potential_energy = self._energy+amount
-        if potential_energy >= Plant.MAX_ENERGY:
-            self._energy = Plant.MAX_ENERGY
-            return potential_energy - Plant.MAX_ENERGY
-        else:
-            self._energy = potential_energy
-            return self._energy - Plant.MAX_ENERGY
+        if potential_energy >= LivingThing.MAX_ENERGY:
+            self._energy = LivingThing.MAX_ENERGY
+            return potential_energy - LivingThing.MAX_ENERGY
+
+        self._energy = potential_energy
+        return 0
