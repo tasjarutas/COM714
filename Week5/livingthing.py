@@ -1,6 +1,7 @@
 class LivingThing:
     REPRODUCE_ENERGY = 20
     MAX_ENERGY = 100
+    MIN_ENERGY = 0
 
     def __init__(self, name: str, age: int = 0, energy: int = 100) -> None:
         self._name = name
