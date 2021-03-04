@@ -5,7 +5,7 @@ class Animal(LivingThing):
     MAX_ENERGY = 100
     MIN_ENERGY = 0
     MOVE_ENERGY = 10
-    REPRODUCE_ENERGY = 20
+    REPRODUCE_ENERGY = 1
 
     def __init__(self, name: str, age: int = 0, energy: int = LivingThing.MAX_ENERGY) -> None:
         # self.__name = name
@@ -22,7 +22,7 @@ class Animal(LivingThing):
     def move(self, distance: int) -> bool:
         potential_energy = self._energy - distance
 
-        if potential_energy >= Animal.MOVE_ENERGY:
+        if potential_energy >= LivingThing.MOVE_ENERGY:
             self._energy = potential_energy
             return True
         else:

@@ -1,7 +1,11 @@
 class LivingThing:
-    REPRODUCE_ENERGY = 20
+    REPRODUCE_ENERGY = 1
     MAX_ENERGY = 100
     MIN_ENERGY = 0
+<<<<<<< HEAD
+=======
+    MOVE_ENERGY = 10
+>>>>>>> d2757d499b07f3b71268717118cf3ef881f1f1a6
 
     def __init__(self, name: str, age: int = 0, energy: int = 100) -> None:
         self._name = name
