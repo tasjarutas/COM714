@@ -1,5 +1,6 @@
-#from human import Human
+# from human import Human
 from livingthing import LivingThing
+
 
 class Planet:
 
@@ -13,22 +14,21 @@ class Planet:
     def __str__(self):
         return f'The Planet {self.__name} has {len(self.__living_things)} living things.'
 
-    def add(self, livingthing: LivingThing) -> bool:
-        self.__living_things.append(livingthing)
-        return livingthing in self.__living_things
+    def add(self, living_thing: LivingThing) -> bool:
+        self.__living_things.append(living_thing)
+        return living_thing in self.__living_things
 
-    def has(self, livingthing: LivingThing) -> bool:
-        return livingthing in self.__living_things
+    def has(self, living_thing: LivingThing) -> bool:
+        return living_thing in self.__living_things
 
     def population(self) -> int:
         return len(self.__living_things)
 
-    def remove(self, livingthing: LivingThing) -> bool:
-        self.__living_things.remove(livingthing)
-        return livingthing in self.__living_things
+    def remove(self, living_thing: LivingThing) -> bool:
+        self.__living_things.remove(living_thing)
+        return living_thing in self.__living_things
 
-
-    #Human class is an attribute of planet
+    # Human class is an attribute of planet
     # def __init__(self, name: str = '') -> None:
     #     self.__humans = []  # Private Attribute
     #     self.__name = name  # Private Attribute

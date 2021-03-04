@@ -3,24 +3,24 @@ class LivingThing:
     MAX_ENERGY = 100
 
     def __init__(self, name: str, age: int = 0, energy: int = 100) -> None:
-        self.__name = name
-        self.__age = age
-        self.__energy = energy
+        self._name = name
+        self._age = age
+        self._energy = energy
 
     def __repr__(self) -> str:
-        return f'living_thing (name={self.__name}, age={self.__age}, energy={self.__energy})'
+        return f'Living_thing (name={self._name}, age={self._age}, energy={self._energy})'
 
     def __str__(self) -> str:
-        return f'{self.__name} is {self.__age} years old'
+        return f'{self._name} is {self._age} years old'
 
     def grow(self) -> None:
-        self.__age += 1
+        self._age += 1
 
     def reproduce(self) -> bool:
-        potential_energy = self.__energy - LivingThing.REPRODUCE_ENERGY
+        potential_energy = self._energy - LivingThing.REPRODUCE_ENERGY
 
         if potential_energy >= LivingThing.REPRODUCE_ENERGY:
-            self.__energy = potential_energy
+            self._energy = potential_energy
             return True
         else:
             return False

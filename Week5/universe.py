@@ -24,7 +24,7 @@ class Universe:
         for planet_name in planet_names:
             planet = Planet(planet_name)
             self.__planets.append(planet)
-            #generated_planets.append(planet)
+            generated_planets.append(planet)
 
     def generate_non_planet(self, non_planet_names: List[str]) -> None:
         for non_planet_name in non_planet_names:
@@ -33,7 +33,7 @@ class Universe:
 
     def display(self) -> None:
         for planet in self.__planets:
-            print(planet)
+            print (f"Plenet: {planet.__name}, Popultion: {planet.population()}")
 
-    def universe_size(self) -> int:
+    def population(self) -> int:
         return len(self.__planets)
