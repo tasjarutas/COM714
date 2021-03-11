@@ -3,7 +3,7 @@ from invisibilitysuperpower import InvisibilitySuperPower
 
 
 class SuperPlant(Plant,InvisibilitySuperPower):
-    INVISIBLE_ENERGY = 3
+    MIN_INVISIBLE_ENERGY = 3
 
     def __init__(self, name: str, age: int = 0, energy: int = Plant.MAX_ENERGY) -> None:
         super().__init__(name, age, energy)
@@ -19,9 +19,10 @@ class SuperPlant(Plant,InvisibilitySuperPower):
         return True
 
     def turn_invisible(self) -> None:
-        potential_energy = self._energy - self.INVISIBLE_ENERGY
-        if potential_energy >= self.INVISIBLE_ENERGY:
+
+        if self._energy >= SuperPlant.MIN_INVISIBLE_ENERGY:
             print("I am now invisible")
             return True
         else:
+            print("Not enough energy to turn invisible")
             return False

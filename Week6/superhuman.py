@@ -5,7 +5,7 @@ from flyingsuperpower import FlyingSuperPower
 
 class SuperHuman(Human, FlyingSuperPower):
 
-    FLY_ENERGY = 5
+    MIN_FLY_ENERGY = 5
 
     def __init__(self, name: str, age: int = 0, energy: int = Animal.MAX_ENERGY) -> None:
         super().__init__(name, age, energy)
@@ -17,10 +17,14 @@ class SuperHuman(Human, FlyingSuperPower):
     def __str__(self) -> str:
         return f'{self._name} is {self._age} years old and has an energy of {self._energy}.'
 
-    def fly(self, distance) -> None:
-        potential_energy = self._energy - distance
-        if potential_energy >= self.FLY_ENERGY:
-            print("I'm flying")
+    def fly(self, distance: float) -> None:
+        #potential_energy = self._energy - distance
+        if self._energy >= SuperHuman.MIN_FLY_ENERGY:
+            if self._energy >= distance:
+                print("I'm flying")
+                self._energy -= distance
+            else:
+                print ("It's too far to fly")
             return True
         else:
             print("Not enough energy to fly")
