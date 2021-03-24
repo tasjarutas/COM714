@@ -17,12 +17,17 @@ class UniverseGui(Tk):
         self.planets_list = Listbox()
         self.planet_button = Button()
 
+        self.non_planets_label = Label()
+        self.non_planets_list = Listbox()
+        self.non_planet_button = Button()
+
         self.configure(bg="#768",
                    height=500,
                    width=500)
         self.add_planets_label()
         self.add_planets_list()
         self.add_planet_button()
+
 
     def add_planets_label(self):
         #Add components to window
